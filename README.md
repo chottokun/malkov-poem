@@ -1,5 +1,4 @@
 # malkov-poem
 
-    !apt install aptitude swig
-    !aptitude install mecab libmecab-dev mecab-ipadic-utf8 git make curl xz-utils file -y
-    !pip install mecab-python3
+    sudo apt-get install mecab libmecab-dev mecab-ipadic-utf8 python-mecab
+    sudo apt-get install aptitude swig
