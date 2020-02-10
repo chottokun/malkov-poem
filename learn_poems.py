@@ -32,24 +32,25 @@ def main():
 
   for (dirpath, _, filenames) in os.walk('./data'):
     for filename in filenames:
-      with open(os.path.join(dirpath, filename)) as f:
-        #print(filename)
-        #text_model = markovify.NewlineText(f, state_size=2)
-        text_model = markovify.Text(f, retain_original=True, state_size=3)
-        #NewlineText
+      if filename.lower().endswith('.txt'):
+        with open(os.path.join(dirpath, filename)) as f:
+          #print(filename)
+          #text_model = markovify.NewlineText(f, state_size=2)
+          text_model = markovify.Text(f, retain_original=True, state_size=3)
+          #NewlineText
 
-        if combined_model:
-          combined_model = markovify.combine(models=[combined_model, text_model], weights=[1.0,1.0])
-        else:
-          combined_model = text_model
+          if combined_model:
+            combined_model = markovify.combine(models=[combined_model, text_model], weights=[1.0,1.0])
+          else:
+            combined_model = text_model
 
-      sentence = combined_model.make_sentence()
-#      print(''.join(sentence.split()))
+        sentence = combined_model.make_sentence()
+        print(''.join(sentence))
 #      gc.collect()
 
-      with open(learned_data, 'w') as f:
-        f.write(combined_model.to_json())
-        print("saved: " + learned_data)
+        with open(learned_data, 'w') as f:
+          f.write(combined_model.to_json())
+          print("saved: " + learned_data)
 
       #remove learned file.
 #      os.remove(os.path.join(dirpath, filename))
