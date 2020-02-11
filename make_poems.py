@@ -29,5 +29,5 @@ def main():
 
 
 if __name__ == '__main__':
-  for var in range(0,100):
+  for var in range(0,1000):
     main()
