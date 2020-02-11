@@ -1,13 +1,13 @@
 # これは？
 マルコフ連鎖でポエムを生成して遊ぶもの
 
-#必要なもの
+# 必要なもの
 mecab
 
     sudo apt-get install mecab libmecab-dev mecab-ipadic-utf8 python-mecab
     sudo apt-get install aptitude swig
 
-#インストール
+# インストール
 
     pipenv install
 
