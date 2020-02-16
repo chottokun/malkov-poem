@@ -12,8 +12,7 @@ def main():
     print("no learned data.")
     exit()
 
-#  sentence = text_model.make_short_sentence(140, tries=10, max_overlap_ratio=0.1, max_overlap_total = 3)
-#  print(str(len(sentence)) + ":" + ''.join(sentence.split()))
+  text_model = text_model.compile()
 
   sentence = text_model.make_short_sentence(
       130, max_overlap_ratio=0.5, tries=30)
@@ -21,7 +20,7 @@ def main():
 
 
   if len(sentence) > 20:
-    # save sentences which are *not* shorter than 20  words. 
+    # save sentences which are *not* shorter than 20 words. 
     with open('malkov_sentences.txt', 'a', encoding = 'UTF-8') as f:
         f.write(''.join(sentence.split()) + "\n")
   else:
