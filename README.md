@@ -22,6 +22,12 @@ python learn_poems.py
 python make_poems.py
 で、新しい文章の生成
 
+# マルコフ連鎖
+
+    text_model = markovify.Text(f, retain_original=True, state_size=3)
+
+state_size=3　は、 2でもいいかも。
+
 # まだまだ、未完成です
 
 生成する文章の長さ
